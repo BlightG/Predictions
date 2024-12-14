@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>House Price Predictor</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles/base.css' %}">
+    </head>
+
+    <body>
+        <h1>House Price Prediction</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label>reputation:</label>
+            <input type="number" name="reputation" required><br>
+
+            <label>Delta:</label>
+            <input type="float" name="delta" required><br>
+
+            <input type="submit" value="Predict Price">
+        </form>
+
+        {% if prediction %}
+        <h2>Predicted Price: ${{ prediction }}</h2>
+        {% endif %}
+    </body>
+
+</html>
